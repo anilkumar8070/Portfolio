@@ -41,6 +41,16 @@ export default function Menu() {
     exit: { y: 20, opacity: 0 },
   };
 
+  const handleScroll = (id: string) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400); // Wait for menu close animation
+  };
+
   return (
     <>
       <button
@@ -117,9 +127,9 @@ export default function Menu() {
                     }}
                   >
                     <motion.span variants={itemVariants} className="text-gray-500 text-sm mb-6 uppercase tracking-widest">Menu</motion.span>
-                    <motion.a href="#" variants={itemVariants} className="text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">About Me</motion.a>
-                    <motion.a href="#" variants={itemVariants} className="text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">Projects</motion.a>
-                    <motion.a href="#" variants={itemVariants} className="text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">Contact</motion.a>
+                    <motion.button onClick={() => handleScroll("about-me")} variants={itemVariants} className="text-left text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">About Me</motion.button>
+                    <motion.button onClick={() => handleScroll("projects")} variants={itemVariants} className="text-left text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">Projects</motion.button>
+                    <motion.button onClick={() => handleScroll("footer")} variants={itemVariants} className="text-left text-4xl md:text-5xl font-light mb-6 hover:opacity-60 transition-opacity">Contact</motion.button>
                   </motion.div>
                 </div>
 

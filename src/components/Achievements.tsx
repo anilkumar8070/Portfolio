@@ -48,7 +48,7 @@ export default function Achievements() {
       <div className="w-full max-w-7xl mx-auto flex flex-col">
         
         {/* Section Header */}
-        <div className="border-t border-neutral-200 pt-6 mb-20 flex justify-between items-baseline">
+        <div id="achievements" className="border-t border-neutral-200 pt-6 mb-20 flex justify-between items-baseline">
           <span className="text-neutral-400 italic text-sm md:text-base tracking-wider uppercase tracking-[0.2em] font-mono">Experience & Growth</span>
         </div>
 
@@ -87,7 +87,7 @@ export default function Achievements() {
           </div>
 
           {/* Education Right Column */}
-          <div className="flex flex-col">
+          <div id="education" className="flex flex-col">
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-neutral-900 mb-16 underline underline-offset-[12px] decoration-neutral-100">
               Education
             </h2>

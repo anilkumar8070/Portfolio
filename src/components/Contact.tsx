@@ -4,8 +4,19 @@ import { motion } from "framer-motion";
 import { Send, Github, Linkedin, Instagram, Mail, Phone } from "lucide-react";
 
 export default function Contact() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    const mailtoLink = `mailto:anilprajapati8070@gmail.com?subject=Portfolio Contact from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
-    <section className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-32 bg-[#0a0a0a] text-white">
+    <section id="contact" className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-32 bg-[#0a0a0a] text-neutral-50">
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
         
         {/* Left Column: Kinetic Typography & Info */}
@@ -44,26 +55,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            {/* Social Links */}
-            <div className="flex gap-6 mt-16">
-               {[
-                 { icon: <Github size={20} />, link: "https://github.com" },
-                 { icon: <Linkedin size={20} />, link: "https://linkedin.com" },
-                 { icon: <Instagram size={20} />, link: "https://instagram.com" }
-               ].map((social, i) => (
-                 <motion.a
-                   key={i}
-                   href={social.link}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   whileHover={{ y: -5 }}
-                   className="w-10 h-10 flex items-center justify-center text-neutral-500 hover:text-white transition-colors"
-                 >
-                   {social.icon}
-                 </motion.a>
-               ))}
-            </div>
           </motion.div>
         </div>
 
@@ -75,10 +66,12 @@ export default function Contact() {
           viewport={{ once: true }}
           className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-12 rounded-[2.5rem]"
         >
-          <form className="flex flex-col gap-10">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-10">
             <div className="relative group">
               <input 
                 type="text" 
+                name="name"
+                required
                 placeholder="What's your name?"
                 className="w-full bg-transparent border-b border-neutral-800 py-4 outline-none focus:border-white transition-colors transition-all duration-500 placeholder:text-neutral-600 text-lg font-light"
               />
@@ -87,6 +80,8 @@ export default function Contact() {
             <div className="relative group">
               <input 
                 type="email" 
+                name="email"
+                required
                 placeholder="Your email address"
                 className="w-full bg-transparent border-b border-neutral-800 py-4 outline-none focus:border-white transition-colors transition-all duration-500 placeholder:text-neutral-600 text-lg font-light"
               />
@@ -94,6 +89,8 @@ export default function Contact() {
 
             <div className="relative group">
               <textarea 
+                name="message"
+                required
                 placeholder="Tell me about your project"
                 rows={4}
                 className="w-full bg-transparent border-b border-neutral-800 py-4 outline-none focus:border-white transition-colors transition-all duration-500 placeholder:text-neutral-600 text-lg font-light resize-none"
@@ -101,6 +98,7 @@ export default function Contact() {
             </div>
 
             <motion.button
+              type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="mt-6 w-full py-6 rounded-2xl bg-white text-black font-medium text-lg flex items-center justify-center gap-3 hover:bg-neutral-200 transition-colors group"

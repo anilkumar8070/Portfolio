@@ -32,7 +32,7 @@ export default function AboutDetails() {
   ];
 
   return (
-    <section className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-16 text-black bg-transparent">
+    <section id="about-details" className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-16 text-black bg-transparent">
       <div className="w-full max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
           

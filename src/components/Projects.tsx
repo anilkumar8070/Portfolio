@@ -6,9 +6,43 @@ import { X } from "lucide-react";
 
 // Mock Project Data
 const projects = [
-  { id: 1, title: "E-Commerce Experience", category: "Web Development", year: "2025", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, title: "Creative Agency", category: "Interactive Design", year: "2024", image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, title: "Fintech Dashboard", category: "UI/UX & Frontend", year: "2024", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" },
+  { 
+    id: 1, 
+    title: "LokYatra", 
+    category: "Bus Tracking App", 
+    year: "2025", 
+    image: "/lokyatra-1.png",
+    images: [
+      "/lokyatra-1.png",
+      "/lokyatra-2.png",
+      "/lokyatra-3.png"
+    ],
+    description: "Architected a real-time tracking system using WebSockets for live bus location updates every second. Integrated GPS module to fetch coordinates from IoT/mobile devices and push them to the backend. Implemented Leaflet map rendering with custom markers, route lines, and live movement animations.",
+    techStack: ["MERN Stack", "WebSockets", "Leaflet Map", "GPS Integration", "Tailwind CSS"],
+    github: "https://github.com/anilkumar8070/bus-tracker"
+  },
+  { 
+    id: 2, 
+    title: "Kartly", 
+    category: "MERN E-Commerce Platform", 
+    year: "2025", 
+    image: "/kartly-1.png",
+    images: ["/kartly-1.png", "/kartly-2.png", "/kartly-3.png"],
+    description: "Developed end-to-end MERN architecture, including frontend UI, backend APIs, and database modeling. Implemented JWT-based authentication with role-based access for Admin, Seller, and Customers. Designed RESTful APIs for product listing, search, cart management, and orders.",
+    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
+    github: "https://github.com/anilkumar8070/kartly-e-Commerce"
+  },
+  { 
+    id: 3, 
+    title: "Portfolio", 
+    category: "Interactive Portfolio Platform", 
+    year: "2026", 
+    image: "/portfolio-1.png",
+    images: ["/portfolio-1.png", "/portfolio-2.png", "/portfolio-3.png"],
+    description: "Designed and developed a highly interactive developer portfolio featuring advanced GSAP-driven animations, Framer Motion transitions, and a custom physics-based project gallery. Built with Next.js and Tailwind CSS to showcase engineering expertise with a focused, minimal aesthetic.",
+    techStack: ["Next.js", "Framer Motion", "GSAP", "Tailwind CSS", "Lucide React", "TypeScript"],
+    github: "https://github.com/anilkumar8070/Portfolio"
+  },
 ];
 
 export default function Projects() {
@@ -53,7 +87,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="w-full min-h-screen snap-start snap-always flex flex-col px-8 md:px-24 pt-32 pb-16 relative">
+    <section id="projects" className="w-full min-h-screen snap-start snap-always flex flex-col px-8 md:px-24 pt-32 pb-16 relative">
       <div className="w-full max-w-6xl mx-auto flex flex-col relative z-10">
         <div className="border-t border-neutral-200 pt-6 mb-16">
           <span className="italic text-sm md:text-base text-neutral-400">Selected Works</span>
@@ -149,16 +183,16 @@ export default function Projects() {
                 transition: { delay: 0, duration: 0.3 } 
               }}
             >
-              <div className="w-full max-w-6xl mx-auto flex flex-col h-full relative z-10">
+              <div className="w-full max-w-6xl mx-auto flex flex-col h-full relative z-10 overflow-y-auto scrollbar-hide pr-4">
                 <button 
-                  className="absolute top-0 right-0 text-white hover:text-neutral-400 transition-colors"
+                  className="absolute top-0 right-0 text-white hover:text-neutral-400 transition-colors z-20"
                   onClick={closeModal}
                 >
                   <X size={40} strokeWidth={1} />
                 </button>
 
                 <motion.div 
-                  className="mt-32"
+                  className="mt-20 pb-20"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ 
                     opacity: 1, y: 0, 
@@ -169,9 +203,48 @@ export default function Projects() {
                   <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-8">
                     {projects.find(p => p.id === selectedProject)?.title}
                   </h2>
-                  <p className="text-xl md:text-3xl text-neutral-400 max-w-3xl font-light leading-relaxed">
-                    Project case study loading... Add incredible imagery and descriptions about this project here.
+                  <p className="text-xl md:text-3xl text-neutral-400 max-w-4xl font-light leading-relaxed mb-12">
+                    {projects.find(p => p.id === selectedProject)?.description}
                   </p>
+
+                  {/* Project Images Gallery */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                    {projects.find(p => p.id === selectedProject)?.images.map((img, i) => (
+                      <div key={i} className="aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900">
+                        <img src={img} alt={`Project Detail ${i}`} className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Project Details Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 border-t border-neutral-900 pt-16">
+                    <div>
+                      <h4 className="text-neutral-500 uppercase tracking-widest text-xs font-mono mb-6">Tech Stack</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {projects.find(p => p.id === selectedProject)?.techStack?.map((tech, i) => (
+                          <span key={i} className="px-4 py-2 border border-neutral-800 rounded-full text-sm text-neutral-300">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-neutral-500 uppercase tracking-widest text-xs font-mono mb-6">Year / Category</h4>
+                      <p className="text-xl text-neutral-200">
+                        {projects.find(p => p.id === selectedProject)?.year} — {projects.find(p => p.id === selectedProject)?.category}
+                      </p>
+                      
+                      <a 
+                        href={projects.find(p => p.id === selectedProject)?.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-12 inline-flex items-center gap-2 text-white hover:text-neutral-400 transition-colors"
+                      >
+                        <span className="font-medium">VIEW GITHUB</span>
+                        <X size={20} className="rotate-45" />
+                      </a>
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>

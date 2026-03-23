@@ -27,7 +27,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-16 text-black bg-transparent">
+    <section id="skills" className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-16 text-black bg-transparent">
       <div className="w-full max-w-6xl mx-auto">
         
         {/* Section Header */}
@@ -56,20 +56,22 @@ export default function Skills() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ 
-                      duration: 0.4, 
-                      delay: (catIndex * 0.1) + (skillIndex * 0.05),
-                      ease: "easeOut" 
+                      opacity: { duration: 0.4, delay: (catIndex * 0.1) + (skillIndex * 0.05), ease: "easeOut" },
+                      scale: { duration: 0.4, delay: (catIndex * 0.1) + (skillIndex * 0.05), ease: "easeOut" },
                     }}
                     viewport={{ once: true }}
                     whileHover={{ 
-                      scale: 1.05, 
+                      y: -4,
+                      scale: 1.02,
+                      boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
                       backgroundColor: "#000", 
                       color: "#fff",
-                      borderColor: "#000"
+                      borderColor: "#000",
+                      transition: { duration: 0.2, ease: "easeInOut" }
                     }}
-                    className="px-6 py-3 rounded-full border border-neutral-200 text-neutral-600 text-sm md:text-base font-light transition-colors duration-300 cursor-default"
+                    className="px-6 py-3 rounded-full border border-neutral-200 text-neutral-600 text-sm md:text-base cursor-default bg-white"
                   >
-                    {skill}
+                    <span>{skill}</span>
                   </motion.div>
                 ))}
               </div>

@@ -23,7 +23,7 @@ const activities = [
 
 export default function ExtraCurricular() {
   return (
-    <section className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-20 bg-transparent">
+    <section id="extra-curricular" className="w-full min-h-screen snap-start snap-always flex flex-col justify-center px-8 md:px-24 py-20 bg-transparent">
       <div className="w-full max-w-7xl mx-auto flex flex-col">
         
         {/* Section Header */}

@@ -148,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* About Section (Light Theme content, transparent background) */}
-      <section className="w-full h-screen snap-start snap-always text-black flex flex-col px-8 md:px-24 pt-32 pb-16">
+      <section id="about-me" className="w-full h-screen snap-start snap-always text-black flex flex-col px-8 md:px-24 pt-32 pb-16">
         <div className="w-full max-w-6xl mx-auto flex flex-col h-full justify-center">
           
           {/* Top Border & Subtitle */}
@@ -163,7 +163,10 @@ export default function Home() {
                 Hi, I'm Anil.
               </h2>
               
-              <button className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full w-fit hover:bg-neutral-800 transition-colors group">
+              <button 
+                onClick={() => document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" })}
+                className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full w-fit hover:bg-neutral-800 transition-colors group"
+              >
                 <ArrowUpRight size={20} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 <span className="font-medium">Get in Touch</span>
               </button>
@@ -203,11 +206,13 @@ export default function Home() {
       {/* Extra-Curricular Activities Section (Light Theme content, transparent background) */}
       <ExtraCurricular />
 
-      {/* Contact Section (Final High-Impact Dark Theme) */}
-      <Contact />
+      <div className="bg-[#0a0a0a]">
+        {/* Contact Section (Final High-Impact Dark Theme) */}
+        <Contact />
 
-      {/* Detailed Footer Section (Dark Theme) */}
-      <Footer />
+        {/* Detailed Footer Section (Dark Theme) */}
+        <Footer />
+      </div>
 
     </motion.main>
   );
