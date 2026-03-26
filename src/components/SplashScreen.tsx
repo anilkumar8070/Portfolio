@@ -11,8 +11,8 @@ const greetings = [
   "Привет", // Russian
   "こんにちは", // Japanese
   "안녕하세요", // Korean
-  "नमस्ते", // Hindi
   "مرحبا", // Arabic
+  "नमस्ते", // Hindi
 ];
 
 export default function SplashScreen({ finishLoading }: { finishLoading: () => void }) {
