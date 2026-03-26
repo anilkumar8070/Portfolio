@@ -84,11 +84,11 @@ export default function Certificates() {
                 <img 
                   src={cert.image} 
                   alt={cert.title} 
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 scale-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+                  className="w-full h-full object-cover grayscale-0 opacity-100 md:grayscale md:opacity-80 md:group-hover:grayscale-0 md:group-hover:opacity-100 scale-100 md:group-hover:scale-105 transition-all duration-1000 ease-out"
                 />
                 
-                {/* Overlay Detail on Hover */}
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700">
+                {/* Overlay Detail on Hover - Desktop Only */}
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/20 to-transparent translate-y-full md:group-hover:translate-y-0 transition-transform duration-700 hidden md:block">
                    <div className="flex items-center gap-2 text-white text-[9px] font-mono tracking-widest uppercase">
                       <div className="w-1 h-1 rounded-full bg-white animate-pulse" />
                       View Credential

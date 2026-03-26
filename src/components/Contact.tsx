@@ -27,7 +27,7 @@ export default function Contact() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
           >
-            <h2 className="text-6xl md:text-8xl font-medium tracking-tighter leading-none mb-12">
+            <h2 className="text-5xl md:text-8xl font-medium tracking-tighter leading-none mb-12">
               LET'S <br />
               <span className="text-neutral-500 italic font-light">BUILD</span> <br />
               SOMETHING <br />
@@ -35,23 +35,23 @@ export default function Contact() {
             </h2>
             
             <div className="flex flex-col gap-8 mt-16">
-              <div className="flex items-center gap-6 group cursor-pointer">
-                <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+              <div className="flex items-start md:items-center gap-4 md:gap-6 group cursor-pointer">
+                <div className="shrink-0 w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
                   <Mail size={18} />
                 </div>
-                <div>
-                   <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">Email me at</p>
-                   <p className="text-xl font-light">anilkprajapati8070@gmail.com</p>
+                <div className="min-w-0">
+                   <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">Email me at</p>
+                   <p className="text-lg md:text-xl font-light break-all md:break-normal">anilkprajapati8070@gmail.com</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 group cursor-pointer">
-                <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+              <div className="flex items-start md:items-center gap-4 md:gap-6 group cursor-pointer">
+                <div className="shrink-0 w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
                   <Phone size={18} />
                 </div>
-                <div>
-                   <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">Call me at</p>
-                   <p className="text-xl font-light">+91 8955434243</p>
+                <div className="min-w-0">
+                   <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">Call me at</p>
+                   <p className="text-lg md:text-xl font-light">+91 8955434243</p>
                 </div>
               </div>
             </div>

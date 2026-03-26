@@ -104,11 +104,11 @@ export default function Projects() {
               onClick={(e) => handleProjectClick(e, project.id)}
             >
               <div className="w-full flex justify-between items-center py-10 md:py-16">
-                <h3 className="text-2xl md:text-4xl font-light tracking-tight text-neutral-900 group-hover:text-neutral-400 hover:!text-black transition-colors duration-500">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-neutral-900 group-hover:text-neutral-400 hover:!text-black transition-colors duration-500">
                   {project.title}
                 </h3>
-                <div className="flex flex-col items-end text-neutral-400 uppercase tracking-widest text-xs font-mono">
-                  <span>{project.category}</span>
+                <div className="flex flex-col items-end text-right text-neutral-400 uppercase tracking-widest text-[10px] md:text-xs font-mono max-w-[150px] md:max-w-none">
+                  <span className="break-words w-full">{project.category}</span>
                   <span>{project.year}</span>
                 </div>
               </div>
@@ -200,10 +200,10 @@ export default function Projects() {
                   }}
                   exit={{ opacity: 0, y: 30, transition: { duration: 0.3 } }}
                 >
-                  <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-8">
+                  <h2 className="text-4xl md:text-6xl lg:text-8xl font-medium tracking-tight mb-8">
                     {projects.find(p => p.id === selectedProject)?.title}
                   </h2>
-                  <p className="text-xl md:text-3xl text-neutral-400 max-w-4xl font-light leading-relaxed mb-12">
+                  <p className="text-lg md:text-2xl lg:text-3xl text-neutral-400 max-w-4xl font-light leading-relaxed mb-12">
                     {projects.find(p => p.id === selectedProject)?.description}
                   </p>
 
