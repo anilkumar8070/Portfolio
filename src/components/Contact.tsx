@@ -41,7 +41,7 @@ export default function Contact() {
                 </div>
                 <div className="min-w-0">
                    <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">Email me at</p>
-                   <p className="text-lg md:text-xl font-light break-all md:break-normal">anilkprajapati8070@gmail.com</p>
+                   <p className="text-lg md:text-xl font-light break-all md:break-normal">anilprajapati8070@gmail.com</p>
                 </div>
               </div>
 
